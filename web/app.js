@@ -1842,6 +1842,13 @@ const PDFViewerApplication = {
     // in the 'rotationchanging' event handler.
   },
 
+  toggleDarkMode() {
+    const darkModeButton = this.appConfig.toolbar.darkModeButton;
+    darkModeButton.ariaChecked = darkModeButton.ariaChecked === 'true' ? 'false' : 'true';
+    darkModeButton.classList.toggle('toggled', darkModeButton.ariaChecked === 'true');
+    this.pdfViewer.darkMode = darkModeButton.ariaChecked === 'true';
+  },
+  
   requestPresentationMode() {
     this.pdfPresentationMode?.request();
   },
@@ -1871,6 +1878,7 @@ const PDFViewerApplication = {
     eventBus._on("sidebarviewchanged", webViewerSidebarViewChanged);
     eventBus._on("pagemode", webViewerPageMode);
     eventBus._on("namedaction", webViewerNamedAction);
+    eventBus._on("darkMode", webViewerDarkMode);
     eventBus._on("presentationmodechanged", webViewerPresentationModeChanged);
     eventBus._on("presentationmode", webViewerPresentationMode);
     eventBus._on("print", webViewerPrint);
@@ -1969,6 +1977,7 @@ const PDFViewerApplication = {
     eventBus._off("sidebarviewchanged", webViewerSidebarViewChanged);
     eventBus._off("pagemode", webViewerPageMode);
     eventBus._off("namedaction", webViewerNamedAction);
+    eventBus._off("darkMode", webViewerDarkMode);
     eventBus._off("presentationmodechanged", webViewerPresentationModeChanged);
     eventBus._off("presentationmode", webViewerPresentationMode);
     eventBus._off("print", webViewerPrint);
@@ -2454,6 +2463,9 @@ if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
   };
 }
 
+function webViewerDarkMode() {
+  PDFViewerApplication.toggleDarkMode();
+}
 function webViewerPresentationMode() {
   PDFViewerApplication.requestPresentationMode();
 }

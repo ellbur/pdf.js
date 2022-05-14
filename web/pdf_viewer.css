@@ -55,6 +55,17 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
+#viewerContainer.dark-mode {
+  background-color: #000;
+}
+
+#viewerContainer.dark-mode > #viewer > .page {
+  filter: invert(0.90) hue-rotate(180deg);
+  border-color: transparent;
+  border-image: url(images/shadow-dark.png) 9 9 repeat;
+  background-color: transparent;
+}
+
 .pdfViewer .dummyPage {
   position: relative;
   width: 0;

@@ -514,6 +514,13 @@ class BaseViewer {
       this.update();
     }
   }
+  
+  /**
+   * @param {boolean} darkMode - Whether to view in dark mode
+   */
+  set darkMode(darkMode) {
+    this.container.classList.toggle('dark-mode', darkMode);
+  }
 
   get firstPagePromise() {
     return this.pdfDocument ? this._firstPageCapability.promise : null;
