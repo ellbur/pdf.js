@@ -119,6 +119,7 @@ const PagesCountLimit = {
  * @property {Object} [pageColors] - Overwrites background and foreground colors
  *   with user defined ones in order to improve readability in high contrast
  *   mode.
+ * @property {boolean} [initDarkMode] - Start in dark mode. Default `false`.
  */
 
 class PDFPageViewBuffer {
@@ -229,6 +230,8 @@ class BaseViewer {
     this.container = options.container;
     this.viewer = options.viewer || options.container.firstElementChild;
 
+    this.darkMode = options.initDarkMode
+    
     if (
       typeof PDFJSDev === "undefined" ||
       PDFJSDev.test("!PRODUCTION || GENERIC")

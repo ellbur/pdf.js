@@ -529,6 +529,7 @@ const PDFViewerApplication = {
         background: AppOptions.get("pageColorsBackground"),
         foreground: AppOptions.get("pageColorsForeground"),
       },
+      initDarkMode: AppOptions.get("initDarkMode")
     });
     pdfRenderingQueue.setViewer(this.pdfViewer);
     pdfLinkService.setViewer(this.pdfViewer);

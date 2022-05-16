@@ -63,6 +63,12 @@
       ],
       "default": 0
     },
+    "initDarkMode": {
+      "title": "Invert colors by default",
+      "description": "When PDF is first opened, should colors be inverted?",
+      "type": "boolean",
+      "default": false
+    },
     "pdfBugEnabled": {
       "title": "Enable debugging tools",
       "description": "Whether to enable debugging tools.",

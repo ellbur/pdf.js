@@ -280,6 +280,11 @@ const defaultOptions = {
         : "../build/pdf.worker.js",
     kind: OptionKind.WORKER,
   },
+  initDarkMode: {
+    /** @type {boolean} */
+    value: false,
+    kind: OptionKind.VIEWER + OptionKind.PREFERENCE
+  }
 };
 if (
   typeof PDFJSDev === "undefined" ||
